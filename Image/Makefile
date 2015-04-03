@@ -8,7 +8,9 @@ main.o: main.c
 	$(CC) -c main.c $(CFLAGS)
 
 image.o: functions/image.c
-	$(CC) -c functions/image.c $(CFLAGS)
+	$(CC) -c functions/image.c
 
 clean:
 	rm -r *.o
+	rm image
+
