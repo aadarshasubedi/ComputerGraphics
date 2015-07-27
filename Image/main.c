@@ -3,7 +3,7 @@
 #include <line.h>
 
 int main(){
-  createImage(W,H); 
-  glVertex4ui(3,8,4,7);
+  glBegin();
+  glVertex4ui(30,90,100,40);
   return 0;
 }
