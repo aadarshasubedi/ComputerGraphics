@@ -1,4 +1,4 @@
-#define x 1920
-#define y 1080
+#define W 1920
+#define H 1080
 
 void createImage(int,int);
