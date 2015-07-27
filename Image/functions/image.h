@@ -1,4 +1,5 @@
-#define W 1920
-#define H 1080
+#define W 150
+#define H 150
 
-void createImage(int,int);
+int** createImageMatrix(int,int);
+void createImage(int,int,int**);
