@@ -16,3 +16,4 @@ line.o: functions/line.c
 clean:
 	rm -r *.o
 	rm image
+	rm *.ppm
