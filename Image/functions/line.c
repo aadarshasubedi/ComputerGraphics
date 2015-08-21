@@ -35,3 +35,14 @@ void glVertex4ui(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2
   
   createImage(W,H,matrix);
 }
+
+void bresenhamLine(unsigned int x1,unsigned int x2,unsigned y1,unsigned y2){
+  int dy = abs(y2-y1);
+  int dx = abs(x2-x1);
+
+  double pk = 2*dy-2*dx;    
+
+  matrix[ROUND_NUMBER(x1)][ROUND_NUMBER(y1)] = 1;
+
+
+}
