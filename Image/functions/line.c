@@ -36,20 +36,22 @@ void ddaLine(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2){
 }
 
 void bresenhamLine(unsigned int x1,unsigned int x2,unsigned y1,unsigned y2){
-  int dy = abs(y2-y1);
-  int dx = abs(x2-x1);
+  int dy = y2-y1;
+  int dx = x2-x1;
+
   int x = x1,y=y1,width=x2;
 
   int pk = 2*dy-dx;
 
   if(x1>x2){
-    x = x1;
-    y = y1;
+    x = x2;
+    y = y2;
+    width = x1;
   }
 
   matrix[ROUND_NUMBER(x)][ROUND_NUMBER(y)] = 1;
 
-  while(x1<width){
+  while(x<width){
     x++;
     if(pk<1){
       pk += 2*dy;

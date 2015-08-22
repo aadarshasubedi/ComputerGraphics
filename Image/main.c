@@ -4,6 +4,6 @@
 
 int main(){
   glBegin();
-  glVertex4ui(30,90,100,40);
+  bresenhamLine(30,90,100,40);
   return 0;
 }
