@@ -14,8 +14,7 @@ int getIncrement(dx,dy){
   return increment;
 }
 
-void glVertex4ui(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2){
- 
+void ddaLine(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2){
   int dy = y2-y1;
   int dx = x2-x1;
   int increment = getIncrement(dx,dy);
@@ -23,7 +22,7 @@ void glVertex4ui(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2
   int i = 0,j=0;
 
   float yIncrement = dy/(float)increment;
-  float xIncrement = dx/(float)increment;   
+  float xIncrement = dx/(float)increment;
 
   matrix[ROUND_NUMBER(y)][ROUND_NUMBER(x)] = 1;
 
@@ -32,17 +31,33 @@ void glVertex4ui(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2
     y+= yIncrement;
     matrix[ROUND_NUMBER(y)][ROUND_NUMBER(x)] = 1;
   }
-  
+
   createImage(W,H,matrix);
 }
 
 void bresenhamLine(unsigned int x1,unsigned int x2,unsigned y1,unsigned y2){
   int dy = abs(y2-y1);
   int dx = abs(x2-x1);
+  int x = x1,y=y1,width=x2;
 
-  double pk = 2*dy-2*dx;    
+  int pk = 2*dy-dx;
 
-  matrix[ROUND_NUMBER(x1)][ROUND_NUMBER(y1)] = 1;
+  if(x1>x2){
+    x = x1;
+    y = y1;
+  }
 
+  matrix[ROUND_NUMBER(x)][ROUND_NUMBER(y)] = 1;
 
+  while(x1<width){
+    x++;
+    if(pk<1){
+      pk += 2*dy;
+    }
+    else{
+      y++;
+      pk += 2*(dy-dx);
+    }
+    matrix[ROUND_NUMBER(x)][ROUND_NUMBER(y)] = 1;
+  }
 }
