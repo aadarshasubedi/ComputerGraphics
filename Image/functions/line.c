@@ -35,13 +35,13 @@ void ddaLine(unsigned int x1,unsigned int x2,unsigned int y1,unsigned int y2){
   createImage(W,H,matrix);
 }
 
-void bresenhamLine(unsigned int x1,unsigned int x2,unsigned y1,unsigned y2){
-  int dy = y2-y1;
-  int dx = x2-x1;
+void bresenhamLine(int x1,int x2,int y1,int y2){
+  int dy = abs(y2-y1);
+  int dx = abs(x2-x1);
 
   int x = x1,y=y1,width=x2;
 
-  int pk = 2*dy-dx;
+  int pk = (2*dy)-dx;
 
   if(x1>x2){
     x = x2;
@@ -62,4 +62,6 @@ void bresenhamLine(unsigned int x1,unsigned int x2,unsigned y1,unsigned y2){
     }
     matrix[ROUND_NUMBER(x)][ROUND_NUMBER(y)] = 1;
   }
+
+  createImage(W,H,matrix);
 }
